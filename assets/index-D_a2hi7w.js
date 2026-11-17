@@ -15,7 +15,7 @@ Everything is working:
 • Terminal — type 'help'
 • Settings — change wallpaper
 
-Drag windows, double-click icons, right-click desktop.`},{name:`ToDo.txt`,type:`file`,content:`- Try Windows, Ubuntu, macOS & iOS
+Drag windows, double-click icons, right-click desktop.`},{name:`ToDo.txt`,type:`file`,content:`- Try Windows, Ubuntu & macOS
 - Play a song in Spotify
 - Create a new folder in Files
 - Write in Notepad and save
