@@ -1,24 +1,17 @@
-# OS Simulator
+# OS Simulator — React Edition
 
-Experience Windows 11, Ubuntu and iOS in your browser.
+Experience Windows 11, Ubuntu, macOS and iOS in your browser.
 
 ## Features
-- OS Selector on load — choose Windows, Ubuntu or iOS
-- Working File Manager (create folder/file, delete, open, search)
-- Working Browser (Chrome / Safari) with tabs and search
-- Spotify with 8 songs streamed from Google Drive
-- Terminal (PowerShell / bash) with real commands
-- Calculator, Notepad, Settings, Photos, Store, VS Code, Clock
-- iOS: Lock screen, Home screen, Control Center, Messages, Camera, Music, Notes, Stopwatch, Phone keypad and more
-- Ubuntu: Lock screen, Activities, Dock, App Grid
+- OS Selector — Windows 11, Ubuntu 24.04, macOS Sonoma, iOS
+- Working File Manager (create/rename/delete/open, grid/list, search)
+- Working Browser — Chrome / Edge / Safari with tabs, bookmarks, search
+- Spotify — 8 songs streamed from Google Drive, shuffle/repeat/like/volume
+- Terminal — PowerShell / bash / zsh with help, ls, neofetch, open, play
+- Calculator, Notepad, Settings (wallpaper/brightness), Photos, Store, VS Code, Clock
 - Windows: Start Menu, Search, Taskbar, Quick Settings
+- Ubuntu: Lock screen, Activities, Dock, App Grid
+- macOS: Menu Bar, Dock, Finder, Launchpad, Spotlight (Ctrl+K), Control Center
+- iOS: Lock screen, Home screen widgets, Control Center, Messages, Camera, Music, Stopwatch
 
-## How to use
-Open the site, pick an OS, double-click desktop icons to open apps.
-Press Esc to go back to the OS selector.
-
-## Songs
-8 songs are streamed directly from Google Drive in Spotify / Music.
-
----
-Built as a web experience. No install needed.
+Built with React + Vite.
