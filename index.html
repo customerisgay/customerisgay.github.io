@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Choose Your OS — Windows • Ubuntu • iOS</title>
+<meta name="description" content="Experience Windows, Ubuntu and iOS in your browser. Working File Manager, Chrome, Spotify and more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ OS SELECTOR ============ -->
+<div id="selector">
+  <div class="sel-bg"></div>
+  <div class="sel-inner">
+    <div class="sel-top">
+      <div class="sel-logo">◐</div>
+      <div>
+        <h1>Choose Your OS</h1>
+        <p>Pick a system. Everything works — Files, Chrome, Spotify, Terminal &amp; more.</p>
+      </div>
+      <div class="sel-clock" id="selClock">--:--</div>
+    </div>
+
+    <div class="os-grid">
+      <button class="os-card win" onclick="bootOS('windows')">
+        <div class="os-preview win-prev">
+          <div class="win-logo"><span></span><span></span><span></span><span></span></div>
+          <div class="win-taskbar"><i></i><i></i><i></i><i></i></div>
+          <div class="win-desk-icons"><b>🖥️</b><b>📁</b><b>🌐</b><b>🎵</b></div>
+        </div>
+        <div class="os-meta"><h2>Windows 11</h2><p>Start Menu • File Explorer • Edge/Chrome • Spotify • Terminal</p><span class="os-cta">Boot Windows →</span></div>
+      </button>
+
+      <button class="os-card ubuntu" onclick="bootOS('ubuntu')">
+        <div class="os-preview ubuntu-prev">
+          <div class="ubuntu-top"></div>
+          <div class="ubuntu-dock"><i>🌐</i><i>📁</i><i>⬛</i><i>🎵</i><i>⚙️</i></div>
+          <div class="ubuntu-circle">◎</div>
+        </div>
+        <div class="os-meta"><h2>Ubuntu</h2><p>Activities • Dock • Files • Terminal • Chrome • Spotify</p><span class="os-cta">Boot Ubuntu →</span></div>
+      </button>
+
+      <button class="os-card ios" onclick="bootOS('ios')">
+        <div class="os-preview ios-prev">
+          <div class="phone-mini">
+            <div class="phone-notch"></div>
+            <div class="phone-grid">
+              <i style="background:#34c759">💬</i><i style="background:#0a84ff">🧭</i><i style="background:#ff2d55">🎵</i><i style="background:#fff">📷</i>
+              <i style="background:#ff9f0a">🗺️</i><i style="background:#ffd60a">🕐</i><i style="background:#fff">🌤️</i><i style="background:#f2f2f7">📝</i>
+              <i style="background:#8e8e93">⚙️</i><i style="background:#fff">🧮</i><i style="background:#0a84ff">📁</i><i style="background:#30d158">🟢</i>
+            </div>
+            <div class="phone-dock"><i>📞</i><i>🧭</i><i>💬</i><i>🎵</i></div>
+          </div>
+        </div>
+        <div class="os-meta"><h2>iOS</h2><p>iPhone • Safari • Music • Messages • Camera • Control Center</p><span class="os-cta">Boot iOS →</span></div>
+      </button>
+    </div>
+
+    <div class="sel-features">
+      <span>📁 Working File Manager</span><span>🌐 Working Browser</span><span>🎵 Spotify + 8 Songs</span><span>⬛ Terminal</span><span>🧮 Calculator</span><span>📝 Notepad / Notes</span><span>⚙️ Settings</span><span>📷 Camera &amp; Photos</span>
+    </div>
+    <p class="sel-foot">Tip: Drag windows • Double-click icons • Right-click desktop • Press <b>Esc</b> to go back to OS selector</p>
+  </div>
+</div>
+
+<!-- ============ BOOT SCREEN ============ -->
+<div id="boot" class="hidden">
+  <div id="bootContent"></div>
+</div>
+
+<!-- ============ WINDOWS ============ -->
+<div id="windows" class="os-root hidden">
+  <div class="win-wallpaper" id="winWallpaper"></div>
+  <div class="win-desktop" id="winDesktop"></div>
+  <div id="winWindows"></div>
+  <div class="win-start hidden" id="winStart"></div>
+  <div class="win-search hidden" id="winSearch"></div>
+  <div class="win-taskbar" id="winTaskbar"></div>
+  <div class="win-tray-menu hidden" id="winTrayMenu"></div>
+  <div class="ctx-menu hidden" id="winCtx"></div>
+</div>
+
+<!-- ============ UBUNTU ============ -->
+<div id="ubuntu" class="os-root hidden">
+  <div class="ubuntu-wallpaper" id="ubuntuWallpaper"></div>
+  <div class="ubuntu-topbar" id="ubuntuTopbar"></div>
+  <div class="ubuntu-dock" id="ubuntuDock"></div>
+  <div class="ubuntu-desktop" id="ubuntuDesktop"></div>
+  <div id="ubuntuWindows"></div>
+  <div class="ubuntu-activities hidden" id="ubuntuActivities"></div>
+  <div class="ubuntu-appgrid hidden" id="ubuntuAppGrid"></div>
+  <div class="ubuntu-menu hidden" id="ubuntuMenu"></div>
+  <div class="ctx-menu hidden" id="ubuntuCtx"></div>
+  <div class="ubuntu-lock hidden" id="ubuntuLock"></div>
+</div>
+
+<!-- ============ iOS ============ -->
+<div id="ios" class="os-root hidden">
+  <div class="ios-stage">
+    <div class="iphone" id="iphone">
+      <div class="iphone-screen" id="iphoneScreen"></div>
+      <div class="iphone-btn side1"></div><div class="iphone-btn side2"></div><div class="iphone-btn side3"></div>
+    </div>
+    <div class="ios-hint">📱 iPhone Simulator — click apps • drag down from top for Control Center • <button onclick="exitOS()">← Change OS</button></div>
+  </div>
+</div>
+
+<!-- Global Spotify player bar (shared) -->
+<div id="globalPlayer" class="hidden"></div>
+<audio id="audioEl" preload="metadata"></audio>
+
+<div id="toast"></div>
+
+<script src="data.js"></script>
+<script src="shared.js"></script>
+<script src="windows.js"></script>
+<script src="ubuntu.js"></script>
+<script src="ios.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
